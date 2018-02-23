@@ -26,46 +26,17 @@
 use \GatewayWorker\Lib\Gateway;
 use \Workerman\Lib\Timer;
 
+
 class Events
 {
-    public static $redis = null;
-
-    public static $gameRoom = 5;
 
     public static function onWorkerStart($businessWorker)
     {
         echo "WorkerStart\n";
-        self::$redis = new \Redis();
-        self::$redis ->pconnect('127.0.0.1',6379);
-        self::$redis ->select(0);
-        echo "redisConnect\n";
 
-        Timer::add(10, function(){
-            echo "timer\n";
-
-            $len = self::$redis->llen('matchpepole');
-            if($len && $len >=2){
-                $lclent_id = self::$redis->lpop('matchpepole');
-                $rclent_id = self::$redis->rpop('matchpepole');
-                echo "jongroup".self::$gameRoom.":".$lclent_id."---".$rclent_id;
-
-                $pepole1 = Gateway::getSession($lclent_id);
-                $pepole2 = Gateway::getSession($rclent_id);
-
-                Gateway::joinGroup($lclent_id, self::$gameRoom);
-                Gateway::joinGroup($rclent_id, self::$gameRoom);
-                $pepole1['room_id'] = self::$gameRoom;
-                $pepole2['room_id'] = self::$gameRoom;
-                Gateway::setSession($lclent_id,$pepole1);
-                Gateway::setSession($rclent_id,$pepole2);
-                $new_message = array('type'=>'gamestart','pepole'=>[$pepole1['client_name'],$pepole2['client_name']], 'time'=>date('Y-m-d H:i:s'));
-                Gateway::sendToGroup(self::$gameRoom, json_encode($new_message));
-                self::$gameRoom ++;
-            }
-        });
     }
 
-   /**
+    /**
     * 有消息时
     * @param int $client_id
     * @param mixed $message
@@ -158,11 +129,7 @@ class Events
                 return Gateway::sendToGroup($room_id ,json_encode($new_message));
 
             case "matchgame":
-                if(!isset($_SESSION['ismatch'])){
-                    self::$redis->rpush('matchpepole',$client_id);
-                    echo $client_id.":matchgame\n";
-                    $_SESSION['ismatch'] = 1;
-                }
+
                 return;
         }
    }

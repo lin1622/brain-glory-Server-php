@@ -7,17 +7,19 @@ use Workerman\Lib\Timer;
 // 创建socket.io服务端，监听2021端口
 $io = new SocketIO(3120);
 // 当有客户端连接时打印一行文字
-$io->on('connection', function($socket)use($io){
+$io->on('connection', function($socket)use($socket,$io){
+
     $socket->addedUser = false;
     echo "new connection coming\n";
-
-//    $io->emit('msg', '这个是消息内容...');
-    $socket->on('msg', function($msg)use($io){
+    var_dump($io->nsps);
+    //接受消息
+    $socket->on('msg', function($msg)use($socket){
         echo "new $msg\n";
         // 触发所有客户端定义的chat message from server事件
-        $io->emit('msg', ['content'=>'你好','time'=>time()]);
+        $socket->emit('msg', ['content'=>'你好','time'=>time()]);
     });
 
+    //用户登录
     $socket->on('adduser', function($username)use($socket){
         global $usernames, $numUsers;
 
@@ -42,7 +44,9 @@ $io->on('connection', function($socket)use($io){
             'numUsers' => $numUsers
         ));
     });
-    $socket->on('matchgame', function($matchdata)use($io){
+
+    //匹配对手
+    $socket->on('matchgame', function($matchdata)use($socket){
         global $matchuser;
         $matchuser[] = $matchdata['username'];
         //加入匹配后
@@ -53,9 +57,25 @@ $io->on('connection', function($socket)use($io){
 //                $user1 = array_pop($matchusercount);
 //            }
 //        });
-        $io->join('test');
-        var_dump($io->to('test'));
+        $socket->join('test');
     });
+
+
+    // when the user disconnects.. perform this
+    $socket->on('disconnect', function () use($socket) {
+        global $usernames, $numUsers;
+        // remove the username from global usernames list
+        if($socket->addedUser) {
+            unset($usernames[$socket->username]);
+            --$numUsers;
+            // echo globally that this client has left
+            $socket->broadcast->emit('user left', array(
+                'username' => $socket->username,
+                'numUsers' => $numUsers
+            ));
+        }
+    });
+
 });
 
 Worker::runAll();

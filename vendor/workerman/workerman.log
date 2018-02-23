@@ -88,3 +88,32 @@ Stack trace:
 #25 D:\Web\brain-glory-Server-php\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
 #26 D:\Web\brain-glory-Server-php\Applications\Command\socketserver.php(57): Workerman\Worker::runAll()
 #27 {main}
+2018-02-23 07:59:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:48 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:51 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:52 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:54 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:56 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 07:59:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:59 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 07:59:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 08:00:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 08:00:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:00:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-23 08:18:26 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-23 08:18:26 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
